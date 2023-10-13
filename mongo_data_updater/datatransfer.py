@@ -31,8 +31,8 @@ uri = os.environ.get('CONNECTION_STRING')
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
-db = client["US_DEBT_DB"]
-collection = db["ACTUAL"]
+db = client[os.environ.get('DATABASE_NAME')]
+collection = db[os.environ.get('ACTUAL_COLLECTION')]]
 
 print(json_data)
 collection.insert_one(json_data)
